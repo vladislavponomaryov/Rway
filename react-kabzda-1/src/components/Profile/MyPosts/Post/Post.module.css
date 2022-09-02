@@ -1,0 +1,20 @@
+.item {
+    padding: 10px;
+}
+
+.avatar {
+    display: block;
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ffc82c;
+    margin-right: 40px;
+}
+
+.like {
+    float: right;
+    background: #62C76AFF;
+    padding: 5px 15px;
+    color: white;
+}
