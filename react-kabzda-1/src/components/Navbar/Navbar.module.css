@@ -3,10 +3,17 @@
     background-color: #62C76AFF;
 }
 
-.item {
+.item a {
+    display: block;
     color: white;
+    text-decoration: none;
+    padding: 3px;
 }
 
-.item.active {
+.item a:hover {
+    background: #52a759;
+}
+
+.item a.active {
     color: brown;
 }
