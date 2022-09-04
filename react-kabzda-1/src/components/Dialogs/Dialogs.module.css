@@ -1,0 +1,28 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsItems {
+    border-right: #8b66f4 1px solid;
+}
+
+.dialogActive {
+    color: #62C76AFF;
+}
+
+.dialogs a {
+    text-decoration: none;
+}
+
+.link {
+    color: black;
+}
+
+.messages {
+    padding: 0px 5px;
+}
+
+.messages:hover {
+    cursor: pointer;
+}

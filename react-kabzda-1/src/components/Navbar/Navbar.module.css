@@ -15,5 +15,5 @@
 }
 
 .item a.active {
-    color: brown;
+    text-decoration: underline;
 }
