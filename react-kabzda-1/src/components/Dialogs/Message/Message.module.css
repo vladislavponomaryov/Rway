@@ -1,0 +1,30 @@
+.item {
+    display: block;
+    width: 100%;
+    height: 30px;
+}
+
+.me {
+    text-align: left;
+}
+
+.companion {
+    text-align: right;
+}
+
+.avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ffc82c;
+    margin: 0px 10px;
+}
+
+.me .avatar {
+    background: cornflowerblue;
+    float: left;
+}
+
+.companion .avatar {
+    float: right;
+}

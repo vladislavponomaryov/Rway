@@ -1,0 +1,13 @@
+.item {
+    min-height: 40px;
+}
+
+.avatar {
+    display: block;
+    float: left;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ffc82c;
+    margin-right: 5px;
+}

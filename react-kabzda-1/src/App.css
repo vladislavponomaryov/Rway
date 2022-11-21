@@ -19,3 +19,23 @@
 img {
     max-width: 100%;
 }
+
+.sidebar {
+    grid-area: n;
+    background-color: #62C76AFF;
+    padding: 10px;
+    color: white;
+    height: 550px;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 400;
+    margin: 0px;
+}
+
+.avatar {
+    display: block;
+    border-radius: 50%;
+    background: #ffc82c;
+    margin-right: 5px;
+}

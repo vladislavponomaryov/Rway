@@ -3,9 +3,8 @@ import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 
 const Dialogs = (p) => {
-
-    let dialogsElements = p.dialogs.map(d => <DialogItem id={d.id} name={d.name}/>);
-    let messagesElements = p.messages.map(m => <Message message={m.message}/>)
+    let dialogsElements = p.state.dialogs.map(d => <DialogItem id={d.id} name={d.name}/>);
+    let messagesElements = p.state.messages.map(m => <Message message={m.message} user={m.user}/>)
 
     return (
         <div className={s.dialogs}>
