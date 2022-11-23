@@ -30,7 +30,7 @@ img {
 
 h1, h2, h3, h4 {
     font-weight: 400;
-    margin: 0px;
+    margin: 0;
 }
 
 .avatar {
@@ -38,4 +38,16 @@ h1, h2, h3, h4 {
     border-radius: 50%;
     background: #ffc82c;
     margin-right: 5px;
+}
+
+
+/* night theme */
+
+html, body {
+    background: #2b2b2c;
+}
+
+.app-wrapper-content {
+    grid-area: c;
+    background: #3c3f41;
 }
