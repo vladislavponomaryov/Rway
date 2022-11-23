@@ -1,6 +1,7 @@
 import s from './Dialogs.module.css';
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
+import AddMessage from "./Message/AddMessage/AddMessage";
 
 const Dialogs = (p) => {
     let dialogsElements = p.state.dialogs.map(d => <DialogItem id={d.id} name={d.name}/>);
@@ -13,9 +14,10 @@ const Dialogs = (p) => {
             </div>
             <div className={s.messages}>
                 {messagesElements}
+                <AddMessage/>
             </div>
         </div>
-    )
+    );
 }
 
 export default Dialogs;
