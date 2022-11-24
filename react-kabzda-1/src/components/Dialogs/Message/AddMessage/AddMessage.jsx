@@ -1,19 +1,23 @@
 import React from 'react';
 import s from './AddMessage.module.css';
 
-const AddMessage = () => {
+const AddMessage = (p) => {
 
     let newMessage = React.createRef();
 
-    let eventAddMessage = () => {
-        alert(newMessage.current.value);
+    let addMessage = () => {
+        p.addMessage();
+    }
+
+    let updateMessageText = () => {
+        p.updateMessageText(newMessage.current.value);
     }
 
     return (
         <div className={s.wrapperAddMessage}>
-            <textarea ref={newMessage} className={s.textarea} name="" id="" cols="50" rows="3"></textarea>
+            <textarea ref={newMessage} className={s.textarea} value={p.messageText} onChange={updateMessageText} name="" id="" cols="50" rows="3" placeholder='New message'></textarea>
             <div>
-                <button className={s.addMessageBtn} onClick={eventAddMessage}>Add</button>
+                <button className={s.addMessageBtn} onClick={addMessage}>Add</button>
             </div>
         </div>
     )

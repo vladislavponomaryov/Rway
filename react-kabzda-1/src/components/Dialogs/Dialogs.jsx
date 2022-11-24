@@ -14,7 +14,7 @@ const Dialogs = (p) => {
             </div>
             <div className={s.messages}>
                 {messagesElements}
-                <AddMessage/>
+                <AddMessage messageText={p.state.messageText} updateMessageText={p.updateMessageText} addMessage={p.addMessage}/>
             </div>
         </div>
     );
