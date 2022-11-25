@@ -1,5 +1,5 @@
 let store = {
-    state: {
+    _state: {
         profilePage:{
             posts: [
                 {id: 1, message: 'Hi, it is my first project )', likesCount: 9},
@@ -35,40 +35,45 @@ let store = {
             ]
         }
     },
-    rerenderEntireTree: () => {
+    getState() {
+        return this._state;
+    },
+    _CallSubscriber() {
         console.log('State changed');
     },
-    subscribe: (observer) => {
-        store.rerenderEntireTree = observer;
+    subscribe(observer) {
+        this._CallSubscriber = observer;
     },
-    addPost: () => {
+    addPost() {
         let post = {
-            id: 3, message: store.state.profilePage.newPostText, likesCount: 0
+            id: 3, message: this._state.profilePage.newPostText, likesCount: 0
         }
 
-        store.state.profilePage.posts.push(post);
-        store.state.profilePage.newPostText = '';
-        store.rerenderEntireTree(store);
+        this._state.profilePage.posts.push(post);
+        this._state.profilePage.newPostText = '';
+        this._CallSubscriber(store);
     },
-    updatePostText: (text) => {
-        store.state.profilePage.newPostText = text;
-        store.rerenderEntireTree(store);
+    updatePostText(text) {
+        store._state.profilePage.newPostText = text;
+        store._CallSubscriber(store);
     },
-    addMessage: () => {
+    addMessage() {
         let newMessage = {
             id: 11,
             user: 'me',
-            message: store.state.dialogsPage.messageText
+            message: this._state.dialogsPage.messageText
         }
 
-        store.state.dialogsPage.messages.push(newMessage);
-        store.state.dialogsPage.messageText = '';
-        store.rerenderEntireTree(store);
+        this._state.dialogsPage.messages.push(newMessage);
+        this._state.dialogsPage.messageText = '';
+        this._CallSubscriber(this);
     },
-    updateMessageText: (text) => {
-        store.state.dialogsPage.messageText = text;
-        store.rerenderEntireTree(store);
+    updateMessageText(text) {
+        this._state.dialogsPage.messageText = text;
+        this._CallSubscriber(store);
     }
 }
 
 export default store;
+
+window.store = store;
