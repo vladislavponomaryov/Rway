@@ -6,11 +6,12 @@ const AddMessage = (p) => {
     let newMessage = React.createRef();
 
     let addMessage = () => {
-        p.addMessage();
+        p.dispatch({ type: 'ADD-MESSAGE' });
     }
 
     let updateMessageText = () => {
-        p.updateMessageText(newMessage.current.value);
+        let text = newMessage.current.value;
+        p.dispatch({ type: 'UPDATE-MESSAGE-TEXT', text: text });
     }
 
     return (

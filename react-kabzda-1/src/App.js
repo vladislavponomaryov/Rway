@@ -20,8 +20,8 @@ const App = (p) => {
             </div>
             <div className="app-wrapper-content">
                 <Routes>
-                    <Route path='/profile' element={<Profile state={p.state.profilePage} addPost={p.store.addPost.bind(p.store)} updatePostText={p.store.updatePostText.bind(p.store)}/>}/>
-                    <Route path='/dialogs/*' element={<Dialogs state={p.state.dialogsPage} addMessage={p.store.addMessage.bind(p.store)} updateMessageText={p.store.updateMessageText.bind(p.store)}/>}/>
+                    <Route path='/profile' element={<Profile state={p.state.profilePage} dispatch={p.dispatch}/>}/>
+                    <Route path='/dialogs/*' element={<Dialogs state={p.state.dialogsPage} dispatch={p.dispatch}/>}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/settings' element={<Settings/>}/>
