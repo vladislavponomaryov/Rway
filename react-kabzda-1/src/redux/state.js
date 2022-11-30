@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import sidebarReducer from "./sidebar-reducer";
 
 let store = {
     _state: {
@@ -52,42 +51,14 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            let post = {
-                id: 3, message: this._state.profilePage.newPostText, likesCount: 0
-            }
 
-            this._state.profilePage.posts.push(post);
-            this._state.profilePage.newPostText = '';
-            this._CallSubscriber(store);
+        this._state.profilePage = profileReducer(this._state.profilePage,action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage,action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar,action);
 
-        } else if (action.type === 'UPDATE-POST-TEXT') {
-            this._state.profilePage.newPostText = action.text;
-            this._CallSubscriber(this._state);
-        } else if ( action.type === 'ADD-MESSAGE' ) {
-            let newMessage = {
-                id: 11,
-                user: 'me',
-                message: this._state.dialogsPage.messageText
-            }
-
-            this._state.dialogsPage.messages.push(newMessage);
-            this._state.dialogsPage.messageText = '';
-            this._CallSubscriber(this);
-        } else if ( action.type === 'UPDATE-MESSAGE-TEXT' ) {
-            this._state.dialogsPage.messageText = action.text;
-            this._CallSubscriber(store);
-        }
+        this._CallSubscriber(this._state);
     }
 }
-
-export const addPostActionCreator = () => ({type: ADD_POST})
-
-export const updatePostTextActionCreator = (text) => ({type: UPDATE_POST_TEXT, text: text})
-
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE })
-
-export const updateMessageTextActionCreator = (text) => ({ type: UPDATE_MESSAGE_TEXT, text: text })
 
 export default store;
 
