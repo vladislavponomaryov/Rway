@@ -7,6 +7,7 @@ const Navbar = () => {
             Profile
         </NavLink></div>
         <div className={s.item}><NavLink to='/dialogs' className={({ isActive }) => (isActive ? s.active : s.link)}>Messages</NavLink></div>
+        <div className={s.item}><NavLink to='/users' className={({ isActive }) => (isActive ? s.active : s.link)}>Users</NavLink></div>
         <div className={s.item}><NavLink to='/news' className={({ isActive }) => (isActive ? s.active : s.link)}>News</NavLink></div>
         <div className={s.item}><NavLink to='/music' className={({ isActive }) => (isActive ? s.active : s.link)}>Music</NavLink></div>
         <div className={s.item}><NavLink to='/settings' className={({ isActive }) => (isActive ? s.active : s.link)}>Settings</NavLink></div>

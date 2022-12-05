@@ -13,6 +13,7 @@ const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST:
+            alert('12345');
             return {
                 ...state,
                 newPostText: '',
