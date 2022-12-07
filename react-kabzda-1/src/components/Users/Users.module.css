@@ -16,3 +16,23 @@
     width: 75%;
     float: left;
 }
+
+.selectPage {
+    font-weight: bold;
+}
+
+.pagination {
+    height: 50px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.pagination span {
+    display: inline-block;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.pagination span:hover {
+    cursor: pointer;
+}
