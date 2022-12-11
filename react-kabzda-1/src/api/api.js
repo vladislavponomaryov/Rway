@@ -9,19 +9,18 @@ const instance = axios.create({
 })
 
 const anonimInstance = axios.create({
-    withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
 })
 
 export const usersAPI = {
     getUsers(currentPage, pageSize) {
-        return anonimInstance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data)
+        return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data)
     },
     follow(userId) {
-        return anonimInstance.post(`follow/` + userId).then(response => response.data)
+        return instance.post(`follow/` + userId).then(response => response.data)
     },
     unfollow(userId) {
-        return anonimInstance.delete(`follow/` + userId).then(response => response.data)
+        return instance.delete(`follow/` + userId).then(response => response.data)
     }
 }
 

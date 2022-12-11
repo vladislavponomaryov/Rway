@@ -17,6 +17,8 @@ const Users = (props) =>  {
     pages.unshift(1);
     pages.push(pagesCount);
 
+    console.log(props);
+
     return <div>
         <h3>Users</h3>
         <div className={s.pagination}>
@@ -33,17 +35,25 @@ const Users = (props) =>  {
                         <NavLink to={/profile/ + u.id}>
                             <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="User" className={s.avatar}/>
                         </NavLink>
-                        {u.followed ? <button onClick={() => {
+                        {u.followed ? <button
+                            disabled={props.followingInProgress.some(id => id === u.id)}
+                            onClick={() => {
+                                props.toggleFollowingProgress(true, u.id);
                             usersAPI.unfollow(u.id).then(response => {
                                 if (response.resultCode === 0) {
                                     props.unfollow(u.id);
                                 }
+                                props.toggleFollowingProgress(false, u.id);
                             });
-                        }}>Unfollow</button> : <button onClick={() => {
+                        }}>Unfollow</button> : <button
+                            disabled={props.followingInProgress.some(id => id === u.id)}
+                            onClick={() => {
+                                props.toggleFollowingProgress(true, u.id);
                             usersAPI.follow(u.id).then(response => {
                                 if (response.resultCode === 0) {
                                     props.follow(u.id);
                                 }
+                                props.toggleFollowingProgress(false, u.id);
                             });
                         }}>Follow</button>}
                     </div>
