@@ -25,13 +25,13 @@ export const usersAPI = {
 }
 
 export const profileAPI = {
-    getProfile(userId) {
+    getProfileData(userId) {
         return anonimInstance.get('profile/' + userId).then(response => response.data)
     }
 }
 
 export const headerAPI = {
     getAuthUserData() {
-        return anonimInstance.get('https://social-network.samuraijs.com/api/1.0/auth/me').then(response => response.data.data)
+        return anonimInstance.get('auth/me').then(response => response.data.data)
     }
 }

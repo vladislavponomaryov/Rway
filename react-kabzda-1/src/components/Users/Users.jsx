@@ -16,8 +16,6 @@ const Users = (props) =>  {
     pages.unshift(1);
     pages.push(pagesCount);
 
-    console.log(props);
-
     return <div>
         <h3>Users</h3>
         <div className={s.pagination}>

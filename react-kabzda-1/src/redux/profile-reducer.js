@@ -1,3 +1,5 @@
+import {profileAPI} from "../api/api";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT';
 const SET_PROFILE = 'SET_PROFILE';
@@ -5,7 +7,7 @@ const SET_PROFILE = 'SET_PROFILE';
 let initialState = {
     posts: [
         {id: 1, message: 'Hi, it is my first project )', likesCount: 9},
-        {id: 2, message: 'Cool', likesCount: 4},
+        {id: 2, message: 'Cool', likesCount: 4}
     ],
     newPostText: '',
     profile: null
@@ -35,5 +37,14 @@ const profileReducer = (state = initialState, action) => {
 export const addPostActionCreator = () => ({type: ADD_POST})
 export const updatePostTextActionCreator = (text) => ({type: UPDATE_POST_TEXT, text: text})
 export const setProfile = (profile) => ({type: SET_PROFILE, profile})
+
+export const getMyProfile = () => {
+    return (dispatch) => {
+        let userId = 11;
+        profileAPI.getProfileData(userId).then(response => {
+            dispatch(setProfile(response));
+        })
+    }
+}
 
 export default profileReducer;

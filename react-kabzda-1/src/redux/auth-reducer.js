@@ -1,3 +1,5 @@
+import {headerAPI} from "../api/api";
+
 const SET_AUTH_USER_DATA = 'ADD-POST';
 
 let initialState = {
@@ -22,5 +24,15 @@ const authReducer = (state = initialState, action) => {
 }
 
 export const setAuthUserData = (userId, email, login) => ({type: SET_AUTH_USER_DATA, data: {userId, email, login}})
+
+export const getAuthUserData = () => {
+    return (dispatch) => {
+        headerAPI.getAuthUserData().then(response => {
+            let {id, email, login} = response;
+            dispatch(setAuthUserData(id, email, login));
+        })
+    }
+}
+
 
 export default authReducer;
