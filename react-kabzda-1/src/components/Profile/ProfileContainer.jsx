@@ -1,15 +1,15 @@
 import React from "react";
 import {connect} from "react-redux";
-import {getMyProfile} from "../../redux/profile-reducer";
+import {getUserProfile} from "../../redux/profile-reducer";
 import Profile from "./Profile";
 import {useParams} from "react-router-dom";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
-        this.props.getMyProfile();
+        this.props.getUserProfile(this.props.match.params.userId); // match отображает профиль пользователя со страницы User
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
-        this.props.getMyProfile(this.props.match.params.userId);
+        this.props.getUserProfile(this.props.match.params.userId); // match отображает профиль пользователя со страницы User
     }
     render() {
         return <Profile {...this.props}/>
@@ -30,5 +30,5 @@ export function withRouter(Children){
 }
 
 export default connect(mapStateToProps,{
-    getMyProfile
+    getUserProfile
 })(withRouter(ProfileContainer));

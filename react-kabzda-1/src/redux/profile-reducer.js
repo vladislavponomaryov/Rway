@@ -38,10 +38,10 @@ export const addPostActionCreator = () => ({type: ADD_POST})
 export const updatePostTextActionCreator = (text) => ({type: UPDATE_POST_TEXT, text: text})
 export const setProfile = (profile) => ({type: SET_PROFILE, profile})
 
-export const getMyProfile = () => {
+export const getUserProfile = (userId) => {
     return (dispatch) => {
-        let userId = 11;
-        profileAPI.getProfileData(userId).then(response => {
+        let id = (userId) ? userId : 11;
+        profileAPI.getProfileData(id).then(response => {
             dispatch(setProfile(response));
         })
     }
