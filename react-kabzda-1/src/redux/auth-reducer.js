@@ -27,12 +27,13 @@ export const setAuthUserData = (userId, email, login) => ({type: SET_AUTH_USER_D
 
 export const getAuthUserData = () => {
     return (dispatch) => {
-        headerAPI.getAuthUserData().then(response => {
-            let {id, email, login} = response;
-            dispatch(setAuthUserData(id, email, login));
+        headerAPI.me().then(response => {
+            if (response.resultCode === 0) {
+                let {id, email, login} = response.data;
+                dispatch(setAuthUserData(id, email, login));
+            }
         })
     }
 }
-
 
 export default authReducer;

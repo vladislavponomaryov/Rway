@@ -18,10 +18,11 @@
     text-align: right;
 }
 
-.user span {
+.user span, .user a {
     display: inline-block;
     margin: 15px;
     padding: 5px;
     color: white;
     cursor: pointer;
+    text-decoration: none;
 }

@@ -1,4 +1,5 @@
 import s from './Header.module.css';
+import {NavLink} from "react-router-dom";
 
 const Header = (props) => {
     return (
@@ -7,7 +8,7 @@ const Header = (props) => {
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/RPC-JP_Logo.png" alt="Logotype"/>
             </div>
             <div className={s.user}>
-                {props.isAuth === true ? <span>{props.login}</span> : <span>Login</span>}
+                {props.isAuth && props.login ? <span>{props.login}</span> : <NavLink to='/login'>Login</NavLink> }
             </div>
         </header>
     )

@@ -2,23 +2,24 @@ import React from "react";
 import {connect} from "react-redux";
 import {getUserProfile} from "../../redux/profile-reducer";
 import Profile from "./Profile";
-import {useParams} from "react-router-dom";
+import {Navigate, useParams} from "react-router-dom";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
         this.props.getUserProfile(this.props.match.params.userId); // match отображает профиль пользователя со страницы User
     }
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        this.props.getUserProfile(this.props.match.params.userId); // match отображает профиль пользователя со страницы User
-    }
     render() {
+
+        if (!this.props.isAuth) return <Navigate to='/login' />
+
         return <Profile {...this.props}/>
     }
 }
 
 let mapStateToProps = (state) => ({
     store: state.store,
-    profile: state.profilePage.profile
+    profile: state.profilePage.profile,
+    isAuth: state.auth.isAuth
 })
 
 export function withRouter(Children){

@@ -26,12 +26,12 @@ export const usersAPI = {
 
 export const profileAPI = {
     getProfileData(userId) {
-        return anonimInstance.get('profile/' + userId).then(response => response.data)
+        return instance.get('profile/' + userId).then(response => response.data)
     }
 }
 
 export const headerAPI = {
-    getAuthUserData() {
-        return anonimInstance.get('auth/me').then(response => response.data.data)
+    me() {
+        return instance.get('auth/me').then(response => response.data)
     }
 }
