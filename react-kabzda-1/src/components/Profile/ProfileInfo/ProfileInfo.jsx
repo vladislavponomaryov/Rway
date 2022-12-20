@@ -1,5 +1,6 @@
 import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
 
@@ -14,6 +15,9 @@ const ProfileInfo = (props) => {
             <div>{ (props.profile.fullName && props.profile.fullName)}</div>
             <div className={s.avatar}>
                 {props.profile.photos.large && <img src={props.profile.photos.large} alt="User"/> }
+            </div>
+            <div>
+                <ProfileStatus status={'The Witcher'} />
             </div>
             <div>{props.profile.aboutMe && props.profile.aboutMe}</div>
             <div>{props.profile.lookingForAJobDescription && props.profile.lookingForAJobDescription}</div>
