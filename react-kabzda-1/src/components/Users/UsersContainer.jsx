@@ -5,7 +5,7 @@ import {
 import React from 'react';
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
-import {Navigate} from "react-router-dom";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -30,8 +30,6 @@ class UsersContainer extends React.Component {
         }
         pages.unshift(1);
         pages.push(pagesCount);
-
-        if (!this.props.isAuth) return <Navigate to='/login' />
 
         return <>
             {this.props.isFetching === true ? <Preloader/> : ''}
@@ -59,6 +57,8 @@ let mapStateToProps = (state) => {
     }
 };
 
+let AuthRedirectComponent = withAuthRedirect(UsersContainer);
+
 export default connect(mapStateToProps, {
     setCurrentPage, toggleIsFetching, follow, unfollow, toggleFollowingProgress, getUsers
-})(UsersContainer);
+})(AuthRedirectComponent);
