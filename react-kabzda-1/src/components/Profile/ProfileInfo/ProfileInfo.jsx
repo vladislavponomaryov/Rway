@@ -17,7 +17,7 @@ const ProfileInfo = (props) => {
                 {props.profile.photos.large && <img src={props.profile.photos.large} alt="User"/> }
             </div>
             <div>
-                <ProfileStatus status={'The Witcher'} />
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
             </div>
             <div>{props.profile.aboutMe && props.profile.aboutMe}</div>
             <div>{props.profile.lookingForAJobDescription && props.profile.lookingForAJobDescription}</div>
