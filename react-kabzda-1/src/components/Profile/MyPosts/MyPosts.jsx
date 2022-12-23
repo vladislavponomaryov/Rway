@@ -1,27 +1,36 @@
 import React from 'react';
-import s from './MyPosts.module.css';
 import Post from "./Post/Post";
+import Field from "redux-form/lib/Field";
+import ReduxForm from "redux-form/lib/reduxForm";
+
+const AddPostForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div>
+                <Field placeholder={'New post'} name={'newPostBody'} component={'textarea'}/>
+            </div>
+            <div>
+                <button>Add post</button>
+            </div>
+        </form>
+    )
+}
+
+const AddPostReduxForm = ReduxForm({form:'profileAddPostForm'})(AddPostForm);
 
 const MyPosts = (p) => {
 
     let postElements = p.posts.map(p => <Post message={p.message} likesCount={p.likesCount} key={p.id} />)
-    let newPost = React.createRef();
 
-    let onAddPost = () => {
-        p.addPost();
-    }
-
-    let onPostChange = () => {
-        let text = newPost.current.value;
-        p.updatePostText(text);
+    let addNewPost = (formData) => {
+        p.addPost(formData.newPostBody);
     }
 
     return (
         <div>
             <h3>My Posts</h3>
             <div>
-                <textarea onChange={onPostChange} ref={newPost} value={p.newPostText} name="" id="" cols="50" rows="3" placeholder='New post' />
-                <button className={s.btnAddPost} onClick={ onAddPost }>Add post</button>
+                <AddPostReduxForm onSubmit={addNewPost} />
             </div>
             {postElements}
         </div>

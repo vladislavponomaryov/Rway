@@ -2,20 +2,31 @@ import s from './Dialogs.module.css';
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 import React from "react";
+import Field from "redux-form/lib/Field";
+import ReduxForm from "redux-form/lib/reduxForm";
+
+const AddMessageForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div>
+                <Field placeholder={'New message'} name={'newMessageBody'} component={'textarea'}/>
+            </div>
+            <div>
+                <button>Add</button>
+            </div>
+        </form>
+    )
+}
+
+const AddMessageReduxForm = ReduxForm({form:'dialogAddMessageForm'})(AddMessageForm);
 
 const Dialogs = (p) => {
 
     let dialogsElements = p.dialogs.map(d => <DialogItem id={d.id} key={d.id} name={d.name}/>);
     let messagesElements = p.messages.map(m => <Message message={m.message} user={m.user} key={m.id} />)
 
-    let newMessage = React.createRef();
-    let onUpdateMessageText = () => {
-        let text = newMessage.current.value;
-        p.updateMessageText(text);
-    }
-
-    let onAddMessage = () => {
-        p.addMessage();
+    const addNewMessage = (formData) => {
+        p.addMessage(formData.newMessageBody);
     }
 
     return (
@@ -26,10 +37,9 @@ const Dialogs = (p) => {
             <div className={s.messages}>
                 {messagesElements}
                 <div className={s.wrapperAddMessage}>
-                    <textarea ref={newMessage} className={s.textarea} value={p.messageText} onChange={onUpdateMessageText} name="" id="" cols="50" rows="3" placeholder='New message'></textarea>
-                    <div>
-                        <button className={s.addMessageBtn} onClick={onAddMessage}>Add</button>
-                    </div>
+
+                    <AddMessageReduxForm onSubmit={addNewMessage}/>
+
                 </div>
             </div>
         </div>
