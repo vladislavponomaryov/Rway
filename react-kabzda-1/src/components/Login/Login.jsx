@@ -23,10 +23,11 @@ const LoginForm = (props) => {
 
 const LoginReduxForm = ReduxForm({form: 'login'})(LoginForm);
 
-const Login = () => {
+const Login = (props) => {
 
     const onSubmit = (formData) => {
-        console.log(formData);
+        let {login, password, rememberMe} = formData;
+        props.authLogin(login, password, rememberMe);
     }
 
     return (

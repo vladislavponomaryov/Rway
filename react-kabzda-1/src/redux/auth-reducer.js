@@ -1,4 +1,4 @@
-import {headerAPI} from "../api/api";
+import {authAPI} from "../api/api";
 
 const SET_AUTH_USER_DATA = 'ADD-POST';
 
@@ -27,10 +27,30 @@ export const setAuthUserData = (userId, email, login) => ({type: SET_AUTH_USER_D
 
 export const getAuthUserData = () => {
     return (dispatch) => {
-        headerAPI.me().then(response => {
+        authAPI.me().then(response => {
             if (response.resultCode === 0) {
                 let {id, email, login} = response.data;
                 dispatch(setAuthUserData(id, email, login));
+            }
+        })
+    }
+}
+
+export const authLogin = (login, password, rememberMe) => {
+    return () => {
+        authAPI.login(login, password, rememberMe).then(response => {
+            if (response.resultCode === 0) {
+                getAuthUserData();
+            }
+        })
+    }
+}
+
+export const authLogout = () => {
+    return () => {
+        authAPI.logout().then(response => {
+            if (response.resultCode === 0) {
+                console.log('Logout');
             }
         })
     }
