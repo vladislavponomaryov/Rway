@@ -8,7 +8,11 @@ const Header = (props) => {
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/RPC-JP_Logo.png" alt="Logotype"/>
             </div>
             <div className={s.user}>
-                {props.isAuth && props.login ? <span>{props.login}</span> : <NavLink to='/login'>Login</NavLink> }
+                {props.isAuth ?
+                    <>
+                        <span>{props.login}</span><button onClick={props.authLogout}>Log out</button>
+                    </>
+                    : <NavLink to='/login'>Login</NavLink> }
             </div>
         </header>
     )

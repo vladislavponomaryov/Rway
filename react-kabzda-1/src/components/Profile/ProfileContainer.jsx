@@ -7,14 +7,13 @@ import {withRouter} from "../../hoc/withRouter";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
-        let routUserId = this.props.match.params.userId;
-        let myProfileUserId = (this.props.userId) ? this.props.userId : 27031;
-        let userId = (routUserId) ? routUserId : myProfileUserId; // match получает ID из страницы браузера через Router
+        let routUserId = this.props.match.params.userId; // match получает ID из страницы браузера через Router
+        let userId = (routUserId) ? routUserId : this.props.userId;
+
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
     }
     render() {
-
         return <Profile {...this.props}/>
     }
 }
@@ -23,7 +22,8 @@ let mapStateToProps = (state) => ({
     store: state.store,
     profile: state.profilePage.profile,
     status: state.profilePage.status,
-    userId: state.auth.userId
+    userId: state.auth.userId,
+    isAuth: state.auth.isAuth
 })
 
 export default compose(

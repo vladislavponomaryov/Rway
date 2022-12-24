@@ -1,8 +1,10 @@
 import React from "react";
 import ReduxForm from "redux-form/lib/reduxForm";
+import s from './../common/FormsControls/FormsControls.module.css';
 import Field from "redux-form/lib/Field";
 import {Input} from "../common/FormsControls/FormsControls";
 import {required} from "../../utils/validators/validators";
+import {Navigate} from "react-router-dom";
 
 const LoginForm = (props) => {
     return (
@@ -15,6 +17,9 @@ const LoginForm = (props) => {
             </div>
             <div>
                 <Field type="checkbox" name={'rememberMe'} component={Input}/> remember me
+            </div>
+            <div className={s.formSummaryError}>
+                {props.error}
             </div>
             <div>
                 <button>Login</button>
@@ -30,6 +35,10 @@ const Login = (props) => {
     const onSubmit = (formData) => {
         let {login, password, rememberMe} = formData;
         props.authLogin(login, password, rememberMe);
+    }
+
+    if (props.isAuth) {
+        return <Navigate to={"/users"}/>
     }
 
     return (
