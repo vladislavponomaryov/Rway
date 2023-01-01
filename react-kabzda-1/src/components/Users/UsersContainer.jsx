@@ -10,8 +10,7 @@ import {
     getCurrentPage, getFollowingInProgress,
     getPageSize,
     getToggleIsFetching,
-    getTotalUserCount,
-    getUsers
+    getTotalUserCount, getUsers
 } from "../../redux/users-selectors";
 
 class UsersContainer extends React.Component {
@@ -25,6 +24,8 @@ class UsersContainer extends React.Component {
     }
 
     render() {
+
+        console.log('Render');
 
         let pagesCount = Math.ceil(this.props.totalUserCount / this.props.pageSize);
         let currentPage = this.props.currentPage;
@@ -53,6 +54,7 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
+    console.log('mstp');
     return {
         users: getUsers(state),
         pageSize: getPageSize(state),
