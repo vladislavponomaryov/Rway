@@ -36,3 +36,7 @@
 .pagination span:hover {
     cursor: pointer;
 }
+
+.followUnfollowButton {
+    margin-left: 15px;
+}

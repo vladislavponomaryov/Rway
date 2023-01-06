@@ -1,10 +1,11 @@
 import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import userPhoto from "../../../assets/images/avatar.png";
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({profile,status,updateStatus}) => {
 
-    if (!props.profile) {
+    if (!profile) {
         return <Preloader/>
     }
 
@@ -12,15 +13,15 @@ const ProfileInfo = (props) => {
         <div>
             <img src="https://i.pinimg.com/originals/60/1a/ac/601aacc648a45704f643b88f5d5c3f39.jpg" alt=""
                  className={s.wallpaper}/>
-            <div>{ (props.profile.fullName && props.profile.fullName)}</div>
+            <div>{ (profile.fullName && profile.fullName)}</div>
             <div className={s.avatar}>
-                {props.profile.photos.large && <img src={props.profile.photos.large} alt="User"/> }
+                {profile.photos.large ? <img src={profile.photos.large} alt="User"/> : <img src={userPhoto} alt="User"/> }
             </div>
             <div>
-                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
             </div>
-            <div>{props.profile.aboutMe && props.profile.aboutMe}</div>
-            <div>{props.profile.lookingForAJobDescription && props.profile.lookingForAJobDescription}</div>
+            <div>{profile.aboutMe && profile.aboutMe}</div>
+            <div>{profile.lookingForAJobDescription && profile.lookingForAJobDescription}</div>
         </div>
     )
 }

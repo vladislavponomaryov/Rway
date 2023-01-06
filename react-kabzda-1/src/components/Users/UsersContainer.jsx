@@ -15,30 +15,17 @@ import {
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+        const {currentPage,pageSize} = this.props
+        this.props.requestUsers(currentPage, pageSize);
     }
 
     onPageChanged = (page) => {
+        const {pageSize} = this.props
         this.props.setCurrentPage(page);
-        this.props.requestUsers(page, this.props.pageSize);
+        this.props.requestUsers(page, pageSize);
     }
 
     render() {
-
-        console.log('Render');
-
-        let pagesCount = Math.ceil(this.props.totalUserCount / this.props.pageSize);
-        let currentPage = this.props.currentPage;
-
-        let pages = [];
-        for (let i = currentPage - 2; i <= currentPage + 2; i++) {
-            if (i > 1 && i < pagesCount) {
-                pages.push(i);
-            }
-        }
-        pages.unshift(1);
-        pages.push(pagesCount);
-
         return <>
             {this.props.isFetching === true ? <Preloader/> : ''}
             <Users
@@ -54,7 +41,6 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-    console.log('mstp');
     return {
         users: getUsers(state),
         pageSize: getPageSize(state),
