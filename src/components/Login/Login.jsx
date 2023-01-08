@@ -39,11 +39,6 @@ const Login = (props) => {
         <div>
             <h1>Login</h1>
             <LoginReduxForm onSubmit={onSubmit}/>
-            <div>
-                <p>Данные тестового аккаунта:</p>
-                <p>Email: free@samuraijs.com</p>
-                <p>Password: free</p>
-            </div>
         </div>
     )
 }

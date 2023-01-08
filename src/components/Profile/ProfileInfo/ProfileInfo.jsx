@@ -2,6 +2,7 @@ import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPhoto from "../../../assets/images/avatar.png";
+import profile_wallpaper from "../../../assets/images/profile_wallpaper.jpg";
 
 const ProfileInfo = ({profile,status,updateStatus}) => {
 
@@ -11,7 +12,7 @@ const ProfileInfo = ({profile,status,updateStatus}) => {
 
     return (
         <div>
-            <img src="https://i.pinimg.com/originals/60/1a/ac/601aacc648a45704f643b88f5d5c3f39.jpg" alt=""
+            <img src={profile_wallpaper} alt="profile wallpaper"
                  className={s.wallpaper}/>
             <div>{ (profile.fullName && profile.fullName)}</div>
             <div className={s.avatar}>
