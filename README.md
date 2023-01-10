@@ -1,3 +1,22 @@
+# Base info
+
+Deploy: https://vladislavponomaryov.github.io/react-way/
+
+Tree: gh-pages
+
+Данные тестового аккаунта:
+
+Email: free@samuraijs.com
+
+Password: free
+
+# Deploy local project
+
+1. Clone project
+2. Run: npm install --force
+3. Run: npm start
+4. Open http://localhost:3000/react-way/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
