@@ -2,7 +2,7 @@ import s from './Message.module.css';
 
 const Message = (props) => {
 
-    let user = (props.user == 'me') ? s.me : s.companion;
+    let user = (props.user === 'me') ? s.me : s.companion;
 
     return (
         <div className={`${s.item} ${user}`}>
