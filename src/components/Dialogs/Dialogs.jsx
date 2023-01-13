@@ -24,13 +24,13 @@ const AddMessageForm = (props) => {
 
 const AddMessageReduxForm = ReduxForm({form:'dialogAddMessageForm'})(AddMessageForm);
 
-const Dialogs = (p) => {
+const Dialogs = (props) => {
 
-    let dialogsElements = p.dialogs.map(d => <DialogItem id={d.id} key={d.id} name={d.name}/>);
-    let messagesElements = p.messages.map(m => <Message message={m.message} user={m.user} key={m.id} />)
+    let dialogsElements = props.dialogs.map(d => <DialogItem id={d.id} name={d.name} key={d.id}/>);
+    let messagesElements = props.messages.map(m => <Message message={m.message} user={m.user} key={m.id} />)
 
     const addNewMessage = (formData) => {
-        p.addMessage(formData.newMessageBody);
+        props.addMessage(formData.newMessageBody);
     }
 
     return (

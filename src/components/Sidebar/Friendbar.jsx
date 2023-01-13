@@ -1,8 +1,8 @@
 import s from './Friendbar.module.css';
 
-const Friendbar = (p) => {
+const Friendbar = (props) => {
 
-    let friendElement = p.state.map(friend => <div className={s.item}>
+    let friendElement = props.friends.map(friend => <div className={s.item}>
         <div className={s.avatar}></div>
         <span>{friend.name}</span>
     </div>);

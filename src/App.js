@@ -4,7 +4,6 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
-import Friendbar from "./components/Friends/Friendbar";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginContainer from "./components/Login/LoginContainer";
 import React, {Component} from "react";
@@ -14,6 +13,7 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
+import FriendbarContainer from "./components/Sidebar/FriendbarContainer";
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
 const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
@@ -40,7 +40,7 @@ class App extends Component {
                 <HeaderContainer/>
                 <div className="sidebar">
                     <Navbar/>
-                    <Friendbar state={this.props.state.sidebar.friends}/>
+                    <FriendbarContainer/>
                 </div>
                 <div className="app-wrapper-content">
                     <React.Suspense fallback={<div>Loader...</div>}>
@@ -48,7 +48,7 @@ class App extends Component {
                             <Route path='/profile/' element={<ProfileContainer/>}>
                                 <Route path=':userId' element={<ProfileContainer/>}/>
                             </Route>
-                            <Route path='/dialogs/*' element={<DialogsContainer store={this.props.store}/>}/>
+                            <Route path='/dialogs/*' element={<DialogsContainer/>}/>
                             <Route path='/users' element={<UsersContainer/>}/>
                             <Route path='/news' element={<News/>}/>
                             <Route path='/music' element={<Music/>}/>
@@ -70,14 +70,13 @@ const mapStateToProps = (state) => ({
 
 let AppContainer = compose(
     withRouter,
-    connect(mapStateToProps, {initializeApp})
-)(App);
+    connect(mapStateToProps, {initializeApp}))(App);
 
 const SamuraiJSApp = () => {
     return (
         <HashRouter>
             <Provider store={store}>
-                <AppContainer state={store.getState()} store={store}/>
+                <AppContainer/>
             </Provider>
         </HashRouter>
     )
