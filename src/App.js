@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import {HashRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
 import Friendbar from "./components/Friends/Friendbar";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginContainer from "./components/Login/LoginContainer";
@@ -20,8 +20,15 @@ const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileCo
 const UsersContainer = React.lazy(() => import("./components/Users/UsersContainer"));
 
 class App extends Component {
+    catchAllUnhandledErrors = (promiseRejectionEvent) => {
+        console.log(promiseRejectionEvent);
+    }
     componentDidMount() {
         this.props.initializeApp();
+        window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors)
+    }
+    componentWillUnmount() {
+        window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors)
     }
 
     render() {
@@ -47,6 +54,8 @@ class App extends Component {
                             <Route path='/music' element={<Music/>}/>
                             <Route path='/settings' element={<Settings/>}/>
                             <Route path='/login' element={<LoginContainer/>}/>
+                            <Route path="/" element={<Navigate to="/profile"/>}/>
+                            <Route path="*" element={<div>404 Page not found</div>}/>
                         </Routes>
                     </React.Suspense>
                 </div>
