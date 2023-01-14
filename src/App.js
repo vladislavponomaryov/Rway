@@ -13,7 +13,7 @@ import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
-import FriendbarContainer from "./components/Sidebar/FriendbarContainer";
+import NewUsersBarContainer from "./components/Sidebar/NewUsersBar/NewUsersBarContainer";
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
 const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
@@ -40,7 +40,7 @@ class App extends Component {
                 <HeaderContainer/>
                 <div className="sidebar">
                     <Navbar/>
-                    <FriendbarContainer/>
+                    <NewUsersBarContainer/>
                 </div>
                 <div className="app-wrapper-content">
                     <React.Suspense fallback={<div>Loader...</div>}>
