@@ -1,4 +1,4 @@
-import {usersAPI} from "../api/api";
+import {usersAPI} from "../../api/api";
 
 let initialState = {
     friends: [
@@ -11,7 +11,7 @@ let initialState = {
 
 const SET_NEW_USERS = "SET_NEW_USERS"
 
-const sidebarReducer = (state = initialState, action) => {
+const sidebar = (state = initialState, action) => {
     switch (action.type) {
         case SET_NEW_USERS:
             return {
@@ -31,4 +31,4 @@ export const getNewUsers = () => async (dispatch) => {
     dispatch(setNewUsers(response.items))
 }
 
-export default sidebarReducer;
+export default sidebar;
