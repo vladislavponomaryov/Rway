@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import SamuraiJSApp from "./App";
+import WebApp from "./App";
 import {unmountComponentAtNode} from "react-dom";
 
 test('renders without crashing', () => {
   const div = document.createElement('div')
-  render(<SamuraiJSApp/>, div);
+  render(<WebApp/>, div);
   unmountComponentAtNode(div);
 });
 
 test('renders learn react link', () => {
-  render(<SamuraiJSApp />);
+  render(<WebApp />);
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });

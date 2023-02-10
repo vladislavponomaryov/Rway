@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {StrictMode} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import SamuraiJSApp from "./App";
+import {Provider} from "react-redux";
+import index from "./store";
+import {BrowserRouter} from "react-router-dom";
+import {App} from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-    <SamuraiJSApp/>
+    <StrictMode>
+        <Provider store={index}>
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
+        </Provider>
+    </StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
