@@ -1,5 +1,5 @@
-import {usersAPI} from "../api/api";
-import {updateObjectInArray} from "../utils/object-helpers";
+import {usersAPI} from "../../api/api";
+import {updateObjectInArray} from "../../utils/others/object-helpers";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -19,7 +19,7 @@ let initialState = {
     fake: 10
 }
 
-const usersReducer = (state = initialState, action) => {
+const users = (state = initialState, action) => {
 
     switch (action.type) {
         case SET_USERS:
@@ -102,4 +102,4 @@ const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) =>
     dispatch(toggleFollowingProgress(false, userId));
 }
 
-export default usersReducer;
+export default users;

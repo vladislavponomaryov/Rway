@@ -1,4 +1,4 @@
-import {authAPI, securityAPI} from "../api/api";
+import {authAPI, securityAPI} from "../../api/api";
 import {stopSubmit} from "redux-form";
 
 const SET_AUTH_USER_DATA = 'samurai-network/auth/SET_AUTH_USER_DATA';
@@ -12,7 +12,7 @@ let initialState = {
     captchaUrl: null // if null, the captcha is not required
 }
 
-const authReducer = (state = initialState, action) => {
+const auth = (state = initialState, action) => {
 
     switch (action.type) {
         case SET_CAPTCHA_URL:
@@ -74,4 +74,4 @@ export const getCaptchaUrl = () => async (dispatch) => {
     dispatch(setCaptchaUrl(captchaUrl));
 }
 
-export default authReducer;
+export default auth;

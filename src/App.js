@@ -8,11 +8,11 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginContainer from "./components/Login/LoginContainer";
 import React, {Component} from "react";
 import {connect, Provider} from "react-redux";
-import {withRouter} from "./hoc/withRouter";
+import {withRouter} from "./utils/hoc/withRouter";
 import {compose} from "redux";
-import {initializeApp} from "./redux/app-reducer";
+import {initializeApp} from "./store/reducers/app";
 import Preloader from "./components/common/Preloader/Preloader";
-import store from "./redux/redux-store";
+import index from "./store";
 import NewUsersBarContainer from "./components/Sidebar/NewUsersBar/NewUsersBarContainer";
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
@@ -75,7 +75,7 @@ let AppContainer = compose(
 const SamuraiJSApp = () => {
     return (
         <HashRouter>
-            <Provider store={store}>
+            <Provider store={index}>
                 <AppContainer/>
             </Provider>
         </HashRouter>

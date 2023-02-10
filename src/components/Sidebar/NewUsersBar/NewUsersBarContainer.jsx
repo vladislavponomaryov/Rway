@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import NewUsersBar from "./NewUsersBar";
-import {getNewUsers} from "../../../redux/sidebar-reducer";
+import {getNewUsers} from "../../../store/reducers/sidebar";
 
 const NewUsersBarContainer = (props) => {
 

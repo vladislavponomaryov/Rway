@@ -1,4 +1,4 @@
-import {getAuthUserData} from "./auth-reducer";
+import {getAuthUserData} from "./auth";
 
 const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
 
@@ -6,7 +6,7 @@ let initialState = {
     initialized: false
 }
 
-const appReducer = (state = initialState, action) => {
+const app = (state = initialState, action) => {
 
     switch (action.type) {
         case INITIALIZED_SUCCESS:
@@ -29,4 +29,4 @@ export const initializeApp = () => (dispatch) => {
    })
 }
 
-export default appReducer;
+export default app;

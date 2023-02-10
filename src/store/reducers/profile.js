@@ -1,6 +1,6 @@
-import {profileAPI} from "../api/api";
+import {profileAPI} from "../../api/api";
 import {stopSubmit} from "redux-form";
-import Profile from "../components/Profile/Profile";
+import Profile from "../../components/Profile/Profile";
 
 const ADD_POST = 'ADD-POST';
 const SET_PROFILE = 'SET_PROFILE';
@@ -17,7 +17,7 @@ let initialState = {
     status: ''
 }
 
-const profileReducer = (state = initialState, action) => {
+const profile = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST:
@@ -94,4 +94,4 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
     }
 }
 
-export default profileReducer;
+export default profile;
