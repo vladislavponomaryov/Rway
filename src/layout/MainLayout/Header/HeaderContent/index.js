@@ -1,4 +1,4 @@
-import {useMediaQuery} from "@mui/material";
+import {Box, useMediaQuery} from "@mui/material";
 import Search from "./Search";
 
 const HeaderContent = () => {
@@ -8,6 +8,7 @@ const HeaderContent = () => {
     return (
         <>
             {!matchesXs && <Search/>}
+            {matchesXs && <Box sx={{width: '100%', ml: 1}}/>}
         </>
     )
 }
