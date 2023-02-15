@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import MainDrawer from "./Drawer";
-import {Box, useMediaQuery, useTheme} from "@mui/material";
+import {Box, Toolbar, useMediaQuery, useTheme} from "@mui/material";
 import Header from "./Header";
 import {Outlet} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
@@ -36,6 +36,7 @@ const MainLayout = () => {
             <Header open={open} handleDrawerToggle={handleDrawerToggle} />
             <MainDrawer open={open} handleDrawerToggle={handleDrawerToggle} />
             <Box component='main' sx={{width: '100%', flexGrow: 1, p: { xs: 2, sm: 3}}}>
+                <Toolbar/>
                 <Outlet/>
             </Box>
         </Box>
