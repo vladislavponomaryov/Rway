@@ -1,10 +1,12 @@
 import React from "react";
 import Drawer from "./Drawer";
-import {Box} from "@mui/material";
+import {Box, useTheme} from "@mui/material";
 import Header from "./Header";
 import {Outlet} from "react-router-dom";
 
 const MainLayout = () => {
+
+    const theme = useTheme()
 
     return (
         <Box sx={{ display: 'flex', width: '100%'}}>

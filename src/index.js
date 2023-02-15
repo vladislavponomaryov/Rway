@@ -6,6 +6,7 @@ import {Provider} from "react-redux";
 import index from "./store";
 import {BrowserRouter} from "react-router-dom";
 import {App} from "./App";
+import ThemeCustomization from "./themes";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -13,7 +14,9 @@ root.render(
     <StrictMode>
         <Provider store={index}>
             <BrowserRouter>
-                <App />
+                <ThemeCustomization>
+                    <App />
+                </ThemeCustomization>
             </BrowserRouter>
         </Provider>
     </StrictMode>
