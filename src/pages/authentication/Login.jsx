@@ -1,7 +1,7 @@
 import React from "react";
 import ReduxForm from "redux-form/lib/reduxForm";
-import style from './../common/FormsControls/FormsControls.module.css';
-import {createField, Input} from "../common/FormsControls/FormsControls";
+import style from '../../components/common/FormsControls/FormsControls.module.css';
+import {createField, Input} from "../../components/common/FormsControls/FormsControls";
 import {required} from "../../utils/others/validators";
 import {Navigate} from "react-router-dom";
 
