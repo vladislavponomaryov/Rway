@@ -1,3 +1,11 @@
+import DashboardCustomizeOutlinedIcon from '@mui/icons-material/DashboardCustomizeOutlined';
+import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined';
+
+const icons = {
+    DashboardCustomizeOutlinedIcon,
+    GroupOutlinedIcon
+}
+
 const dashboard = {
     id: 'group-dashboard',
     title: 'Navigation',
@@ -7,13 +15,15 @@ const dashboard = {
             id: 'dashboard',
             title: 'Dashboard',
             type: 'item',
-            url: 'dashboard/default'
+            url: 'dashboard/default',
+            icon: icons.DashboardCustomizeOutlinedIcon
         },
         {
             id: 'users',
             title: 'Users',
             type: 'item',
-            url: 'users'
+            url: 'users',
+            icon: icons.GroupOutlinedIcon
         }
     ]
 }

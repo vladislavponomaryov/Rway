@@ -1,10 +1,18 @@
 import Navigation from "./Navigation";
+import SimpleBar from "simplebar-react";
 
 const DrawerContent = () => {
     return (
-        <div>
+        <SimpleBar
+            sx={{
+                '& .simplebar-content': {
+                    display: 'flex',
+                    flexDirection: 'column'
+                }
+            }}
+        >
             <Navigation />
-        </div>
+        </SimpleBar>
     )
 }
 
