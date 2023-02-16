@@ -13,8 +13,8 @@ const MainDrawer = ({ open, handleDrawerToggle, window}) => {
     const container = window !== undefined ? () => window().document.body : undefined
 
     // header content
-    const drawerContent = useMemo(() => <DrawerContent/>,[])
     const drawerHeader = useMemo(() => <DrawerHeader open={open} />,[open])
+    const drawerContent = useMemo(() => <DrawerContent/>,[])
 
     return (
         <Box component='nav' sx={{flexShrink: {md:0}, zIndex: 1300}} aria-label="mailbox folders">
