@@ -4,7 +4,7 @@ import {
 } from '../../store/reducers/users';
 import React from 'react';
 import Users from './Users';
-import Preloader from "../common/Preloader/Preloader";
+import Preloader from "../../components/common/Preloader/Preloader";
 import {compose} from "redux";
 import {
     getCurrentPage, getFollowingInProgress,

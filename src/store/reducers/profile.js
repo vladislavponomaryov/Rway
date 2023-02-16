@@ -1,6 +1,6 @@
 import {profileAPI} from "../../api/api";
 import {stopSubmit} from "redux-form";
-import Profile from "../../components/Profile/Profile";
+import Profile from "../../pages/profile/Profile";
 
 const ADD_POST = 'ADD-POST';
 const SET_PROFILE = 'SET_PROFILE';
