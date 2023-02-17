@@ -5,7 +5,7 @@ import {withAuthRedirect} from "../../utils/hoc/withAuthRedirect";
 import {compose} from "redux";
 import React from "react";
 
-class DialogsContainer extends React.Component {
+class Index extends React.Component {
     render() {
         return <>
             <Dialogs {...this.props}/>
@@ -24,4 +24,4 @@ let mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps,{addMessage}),
     withAuthRedirect
-)(DialogsContainer);
+)(Index);

@@ -6,7 +6,7 @@ import {compose} from "redux";
 import {withRouter} from "../../utils/hoc/withRouter";
 import {Navigate} from "react-router-dom";
 
-class ProfileContainer extends React.Component {
+class Index extends React.Component {
 
     refreshProfile () {
         let routUserId = this.props.match.params.userId; // match получает ID из страницы браузера через Router
@@ -46,7 +46,7 @@ let mapStateToProps = (state) => ({
 export default compose(
     connect(mapStateToProps,{getUserProfile, getStatus, updateStatus, savePhoto, saveProfile}),
     withRouter
-)(ProfileContainer);
+)(Index);
 
 
 

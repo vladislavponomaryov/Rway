@@ -2,7 +2,6 @@ import s from './ProfileInfo.module.css';
 import Preloader from "../../../components/common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPhoto from "../../../assets/images/avatar.png";
-import profile_wallpaper from "../../../assets/images/profile_wallpaper.jpg";
 import {useState} from "react";
 import ProfileDataForm from "./ProfileDataForm";
 
@@ -38,8 +37,6 @@ const ProfileInfo = ({
 
     return (
         <div>
-            <img src={profile_wallpaper} alt="profile wallpaper"
-                 className={s.wallpaper}/>
             <div className={s.avatar}>
                 {profile.photos.large ? <img src={profile.photos.large} alt="User"/> :
                     <img src={userPhoto} alt="User"/>}

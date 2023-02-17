@@ -13,7 +13,7 @@ import {
     getTotalUserCount, getUsers
 } from "../../utils/selectors/users";
 
-class UsersContainer extends React.Component {
+class Index extends React.Component {
     componentDidMount() {
         const {currentPage,pageSize} = this.props
         this.props.requestUsers(currentPage, pageSize);
@@ -56,4 +56,4 @@ export default compose(
     connect(mapStateToProps, {
         setCurrentPage, toggleIsFetching, follow, unfollow, toggleFollowingProgress, requestUsers
     })
-)(UsersContainer);
+)(Index);
