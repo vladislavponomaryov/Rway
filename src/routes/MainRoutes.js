@@ -38,7 +38,7 @@ const MainRoutes = {
             element: <Users />
         },
         {
-            path: 'News',
+            path: 'news',
             element: <News />
         }
     ]
