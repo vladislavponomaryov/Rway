@@ -18,7 +18,12 @@ const MainRoutes = {
         },
         {
             path: 'dashboard',
-            element: <DashboardDefault />
+            children: [
+                {
+                    path: 'default',
+                    element: <DashboardDefault />
+                }
+            ],
         },
         {
             path: 'profile',

@@ -15,14 +15,14 @@ const dashboard = {
             id: 'dashboard',
             title: 'Dashboard',
             type: 'item',
-            url: 'dashboard/default',
+            url: '/dashboard/default',
             icon: icons.DashboardCustomizeOutlinedIcon
         },
         {
             id: 'users',
             title: 'Users',
             type: 'item',
-            url: 'users',
+            url: '/users',
             icon: icons.GroupOutlinedIcon
         }
     ]
