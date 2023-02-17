@@ -1,7 +1,8 @@
 import Navigation from "./Navigation";
-import SimpleBar from "simplebar-react";
+import SimpleBar from "../../../../components/third-praty/SimpleBar";
 
 const DrawerContent = () => {
+
     return (
         <SimpleBar
             sx={{
@@ -11,7 +12,7 @@ const DrawerContent = () => {
                 }
             }}
         >
-            <Navigation />
+            <Navigation/>
         </SimpleBar>
     )
 }

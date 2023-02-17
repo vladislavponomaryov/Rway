@@ -1,7 +1,8 @@
 import dashboard from "./dashboard";
+import authentication from "./authentication";
 
 const menuItems = {
-    items: [dashboard]
+    items: [dashboard,authentication]
 }
 
 export default menuItems

@@ -1,5 +1,6 @@
 import menuItems from "../../../../../menu-items";
 import NavGroup from "./NavGroup";
+import {Box} from "@mui/material";
 
 const Navigation = () => {
 
@@ -8,9 +9,9 @@ const Navigation = () => {
     })
 
     return (
-        <div>
+        <Box sx={{pt:2}}>
             {navGroups}
-        </div>
+        </Box>
     )
 }
 
